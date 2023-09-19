@@ -1,0 +1,5 @@
+colocar todos los modules de ang material en otro modulo, y en el appmodulo importamos el modulo de ang material
+
+imagenes: colocarlas en carpeta assets
+
+lazy loading: se llama lazy loading cuando uno carga un componente o una serie de componentes solamente cuando se van a utilizar, dentro de el routing,cuando se ingresa a determinado componente que adentro tiene otros componentes, se llama a loadChildren, es una funcion que devuelve una promesa. y aca se llama al modulo que contiene todo estos componentes adentro del componente principal, y solamente se carga este modulo con estos componnetes cuando se va a una determinada ruta.
