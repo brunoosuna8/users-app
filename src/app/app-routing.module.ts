@@ -12,13 +12,13 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
-  // {
-  //   path: 'dashboard',
-  //   loadChildren: () =>
-  //     import('./components/dashboard/dashboard.module').then(
-  //       (res) => res.DashboardModule
-  //     ),
-  // },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./components/dashboard/dashboard.module').then(
+        (res) => res.DashboardModule
+      ),
+  },
   {
     path: '**',
     redirectTo: 'login',
