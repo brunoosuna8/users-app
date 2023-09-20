@@ -28,18 +28,21 @@ const users: User[] = [
 export class UsersComponent implements OnInit {
   array: User[] = [];
   constructor(private userService: UserService) {}
-  displayedColumns: string[] = ['name', 'lastName', 'age', 'gender'];
+  displayedColumns: string[] = ['name', 'lastName', 'age', 'gender', 'actions'];
   dataSource = this.array;
 
   ngOnInit(): void {
     this.getUsers();
-    console.log(this.array);
   }
 
   getUsers() {
-    this.userService.getUsers().subscribe((data) => {
+    this.userService.users.subscribe((data) => {
       this.dataSource = data;
       console.log(this.dataSource);
     });
+  }
+  onDeleteUser(id: number): void {
+    console.log(id);
+    this.userService.deleteUser(id);
   }
 }
