@@ -1,14 +1,15 @@
 <mat-toolbar color="primary">
   <span>App Users</span>
   <span class="example-spacer"></span>
-  <button mat-button>Dashboard</button>
-  <button mat-button>Users</button>
-  <button mat-button>Reports</button>
+  <button mat-button routerLink="/dashboard">Dashboard</button>
+  <button mat-button routerLink="/dashboard/users">Users</button>
+  <button mat-button routerLink="/dashboard/reports">Reports</button>
   <span class="example-spacer"></span>
   <button
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with menu icon"
+    routerLink="/login"
   >
     <mat-icon>logout</mat-icon>
   </button>
