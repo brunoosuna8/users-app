@@ -8,7 +8,8 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { HomeComponent } from '../home/home.component';
 import { UsersComponent } from '../users/users.component';
 import { ReportsComponent } from '../reports/reports.component';
-
+import { EditDialogComponent } from '../dialog/edit-dialog/edit-dialog.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -16,7 +17,8 @@ import { ReportsComponent } from '../reports/reports.component';
     HomeComponent,
     UsersComponent,
     ReportsComponent,
+    EditDialogComponent,
   ],
-  imports: [CommonModule, DashboardRoutingModule, SharedModule],
+  imports: [CommonModule, DashboardRoutingModule, SharedModule, FormsModule],
 })
 export class DashboardModule {}

@@ -13,6 +13,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+//dialog
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [],
   imports: [
@@ -28,6 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatTableModule,
     HttpClientModule,
+    MatDialogModule,
+    MatCheckboxModule,
   ],
   exports: [
     CommonModule,
@@ -42,6 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatTableModule,
     HttpClientModule,
+    MatDialogModule,
+    MatCheckboxModule,
   ],
 })
 export class SharedModule {}
