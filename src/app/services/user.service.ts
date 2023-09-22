@@ -27,4 +27,9 @@ export class UserService {
     this.arrayUsers = filteredArray;
     this.arrayObs.next(this.arrayUsers);
   }
+  updateUser(userUpdated: User) {
+    let index = this.arrayUsers.findIndex((e) => e.id === userUpdated.id);
+    this.arrayUsers[index] = userUpdated;
+    return this.arrayObs.asObservable();
+  }
 }

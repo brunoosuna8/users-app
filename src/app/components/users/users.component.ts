@@ -16,14 +16,12 @@ export class UsersComponent implements OnInit {
   dataSource = this.array;
 
   ngOnInit(): void {
-    this.getUsers();
-  }
-
-  getUsers() {
     this.userService.users.subscribe((data) => {
       this.dataSource = data;
+      console.log(this.dataSource);
     });
   }
+
   onDeleteUser(id: number): void {
     console.log(id);
     this.userService.deleteUser(id);
@@ -42,8 +40,20 @@ export class UsersComponent implements OnInit {
       age,
       gender,
     };
-    this.dialog.open(EditDialogComponent, {
+    let popup = this.dialog.open(EditDialogComponent, {
       data: userEdit,
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '300ms',
+    });
+    popup.afterClosed().subscribe((e) => {
+      this.userService.users.subscribe((data) => {
+        this.dataSource = data;
+        console.log(this.dataSource);
+        this.userService.users.subscribe((data) => {
+          this.dataSource = data;
+          console.log(this.dataSource);
+        });
+      });
     });
   }
 }

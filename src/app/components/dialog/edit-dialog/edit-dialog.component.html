@@ -10,7 +10,7 @@
       margin: 30px;
     "
     [formGroup]="form"
-    (ngSubmit)="onSubmit(); (false)"
+    (ngSubmit)="onSubmit()"
   >
     <mat-form-field>
       <mat-label>Name</mat-label>
@@ -46,6 +46,9 @@
 
     <button mat-raised-button color="primary" (click)="onSubmit()">
       Confirm Edit
+    </button>
+    <button mat-raised-button color="warn" (click)="closeEditDialog()">
+      Cancel
     </button>
   </form>
 </div>

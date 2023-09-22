@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { User } from '../../interfaces/user.interface';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-edit-dialog',
@@ -14,7 +15,8 @@ export class EditDialogComponent {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<EditDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: User
+    @Inject(MAT_DIALOG_DATA) public data: User,
+    private userService: UserService
   ) {
     this.form = this.fb.group({
       name: [data.name, Validators.required], //esta prop inicializa vacia y va a ser requerida
@@ -32,5 +34,19 @@ export class EditDialogComponent {
   onSubmit() {
     this.form.value.gender = this.selectedGender;
     console.log(this.form.value);
+    let userUpdated: User = {
+      id: this.data.id,
+      name: this.form.value.name,
+      lastName: this.form.value.lastName,
+      age: this.form.value.age,
+      gender: this.selectedGender,
+    };
+    console.log(userUpdated);
+    this.userService.updateUser(userUpdated).subscribe((res) => {
+      this.dialogRef.close();
+    });
+  }
+  closeEditDialog() {
+    this.dialogRef.close();
   }
 }
