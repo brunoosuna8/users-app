@@ -30,6 +30,10 @@ export class UserService {
   updateUser(userUpdated: User) {
     let index = this.arrayUsers.findIndex((e) => e.id === userUpdated.id);
     this.arrayUsers[index] = userUpdated;
-    return this.arrayObs.asObservable();
+    this.arrayObs.next([...this.arrayUsers]);
+  }
+  addUser(newUser: User) {
+    this.arrayUsers.unshift(newUser);
+    this.arrayObs.next([...this.arrayUsers]);
   }
 }

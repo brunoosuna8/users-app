@@ -42,9 +42,8 @@ export class EditDialogComponent {
       gender: this.selectedGender,
     };
     console.log(userUpdated);
-    this.userService.updateUser(userUpdated).subscribe((res) => {
-      this.dialogRef.close();
-    });
+    this.userService.updateUser(userUpdated);
+    this.dialogRef.close();
   }
   closeEditDialog() {
     this.dialogRef.close();

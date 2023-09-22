@@ -1,5 +1,9 @@
 <mat-toolbar>
   <span>Users</span>
+  <button mat-raised-button color="primary" (click)="onAdd()">
+    Add User
+    <mat-icon>add</mat-icon>
+  </button>
 </mat-toolbar>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <!--- Note that these columns can be defined in any order.

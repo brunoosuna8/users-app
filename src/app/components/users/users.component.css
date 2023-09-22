@@ -1,0 +1,9 @@
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 300px;
+}
+button {
+  border: 1px solid black;
+}

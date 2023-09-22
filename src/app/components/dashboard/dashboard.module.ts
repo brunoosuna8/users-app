@@ -10,6 +10,7 @@ import { UsersComponent } from '../users/users.component';
 import { ReportsComponent } from '../reports/reports.component';
 import { EditDialogComponent } from '../dialog/edit-dialog/edit-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { AddDialogComponent } from '../dialog/add-dialog/add-dialog.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     UsersComponent,
     ReportsComponent,
     EditDialogComponent,
+    AddDialogComponent,
   ],
   imports: [CommonModule, DashboardRoutingModule, SharedModule, FormsModule],
 })
