@@ -7,3 +7,17 @@
 button {
   border: 1px solid black;
 }
+
+#edit {
+  color: goldenrod;
+}
+.mat-icon:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 450px) {
+  .mat-toolbar {
+    padding-right: 10px;
+    position: fixed;
+  }
+}

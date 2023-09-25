@@ -14,6 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 //dialog
 import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
@@ -33,6 +35,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     MatDialogModule,
     MatCheckboxModule,
+    MatMenuModule,
+    MatPaginatorModule,
   ],
   exports: [
     CommonModule,
@@ -49,6 +53,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     MatDialogModule,
     MatCheckboxModule,
+    MatMenuModule,
+    MatPaginatorModule,
   ],
 })
 export class SharedModule {}

@@ -1,3 +1,27 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#menu-button {
+  display: none;
+}
+@media (max-width: 450px) {
+  .container {
+    display: none;
+  }
+  #menu-button {
+    display: flex;
+  }
+  #logout {
+    display: none;
+  }
+}

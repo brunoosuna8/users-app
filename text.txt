@@ -6,6 +6,8 @@ lazy loading: se llama lazy loading cuando uno carga un componente o una serie d
 
 tasks:
 
-agregar editar,buscar,eliminar
-paginado
-hacer agregar persona
+agregar editar,buscar,eliminar check.
+paginado check
+hacer agregar persona check
+responsive navbar
+poner algo en report y dashboard

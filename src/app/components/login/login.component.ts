@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { interval } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -27,13 +28,19 @@ export class LoginComponent implements OnInit {
     console.log(this.form);
     const user = this.form.value.user;
     const pw = this.form.value.password;
-    if (user === 'admin123' && pw === '123') {
-      this.loading = true;
-      setInterval(() => {
+    this.loading = true;
+
+    interval(1000)
+      .pipe(
+        delay(1000) // Retrasa la emisión durante 1 segundo
+      )
+      .subscribe(() => {
         this.loading = false;
-      }, 1500);
-      //redirect
+      });
+    if (user === 'admin123' && pw === '123') {
       this.router.navigate(['dashboard']);
+
+      //redirect
     } else {
       this.snackBar.open('User or Password Invalid', '', {
         duration: 2000,
