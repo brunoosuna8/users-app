@@ -30,26 +30,28 @@ export class UsersComponent implements OnInit {
     console.log(id);
     this.userService.deleteUser(id);
   }
-  onEdit(
-    id: number,
-    name: string,
-    lastName: string,
-    age: number,
-    gender: 'male' | 'female'
-  ) {
-    let userEdit: User = {
-      id,
-      name,
-      lastName,
-      age,
-      gender,
-    };
-    let popup = this.dialog.open(EditDialogComponent, {
-      data: userEdit,
-      enterAnimationDuration: '300ms',
-      exitAnimationDuration: '300ms',
-      autoFocus: false,
-    });
+  onEdit(element?: any) {
+    if (element) {
+      let userEdit: User = {
+        id: element.id,
+        name: element.name,
+        lastName: element.lastName,
+        age: element.age,
+        gender: element.gender,
+      };
+      let popup = this.dialog.open(EditDialogComponent, {
+        data: userEdit,
+        enterAnimationDuration: '300ms',
+        exitAnimationDuration: '300ms',
+        autoFocus: false,
+      });
+    } else {
+      this.dialog.open(EditDialogComponent, {
+        enterAnimationDuration: '300ms',
+        exitAnimationDuration: '300ms',
+        autoFocus: true,
+      });
+    }
 
     // popup.afterClosed().subscribe((e) => {
     //   this.userService.users.subscribe((data) => {
