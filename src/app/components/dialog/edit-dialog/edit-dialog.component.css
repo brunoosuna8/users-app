@@ -7,3 +7,13 @@
 .form-dialog.container {
   width: 100%;
 }
+.input-container {
+  display: flex;
+}
+.icon-container {
+  width: 10%;
+}
+mat-icon {
+  margin-top: 20px;
+  margin-left: 10px;
+}

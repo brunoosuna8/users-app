@@ -11,18 +11,55 @@
     "
     [formGroup]="form"
   >
-    <mat-form-field>
-      <mat-label>Name</mat-label>
-      <input matInput formControlName="name" type="text" />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Last Name</mat-label>
-      <input matInput formControlName="lastName" type="text" />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Age</mat-label>
-      <input matInput formControlName="age" type="number" />
-    </mat-form-field>
+    <div class="input-container">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          type="text"
+          (ngModelChange)="onValidate()"
+        />
+      </mat-form-field>
+      <div class="icon-container">
+        <mat-icon [style.color]="validateInputs.name ? 'green' : 'red'">{{
+          validateInputs.name ? "check_circle" : "error_outline"
+        }}</mat-icon>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <mat-form-field>
+        <mat-label>LastName</mat-label>
+        <input
+          matInput
+          formControlName="lastName"
+          type="text"
+          (ngModelChange)="onValidate()"
+        />
+      </mat-form-field>
+      <div class="icon-container">
+        <mat-icon [style.color]="validateInputs.lastName ? 'green' : 'red'">{{
+          validateInputs.lastName ? "check_circle" : "error_outline"
+        }}</mat-icon>
+      </div>
+    </div>
+    <div class="input-container">
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input
+          matInput
+          formControlName="age"
+          type="number"
+          (ngModelChange)="onValidate()"
+        />
+      </mat-form-field>
+      <div class="icon-container">
+        <mat-icon [style.color]="validateInputs.age ? 'green' : 'red'">{{
+          validateInputs.age ? "check_circle" : "error_outline"
+        }}</mat-icon>
+      </div>
+    </div>
 
     <mat-label>Gender</mat-label>
 
@@ -43,7 +80,12 @@
       >Female</mat-checkbox
     >
 
-    <button mat-raised-button color="primary" (click)="onSubmit()">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit()"
+      [disabled]="!allInputs"
+    >
       Confirm Edit
     </button>
     <button mat-raised-button color="warn" (click)="closeEditDialog()">

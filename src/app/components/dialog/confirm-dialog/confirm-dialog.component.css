@@ -1,0 +1,8 @@
+.container {
+  height: 130px;
+}
+.buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}

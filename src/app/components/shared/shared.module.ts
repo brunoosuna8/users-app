@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
 //dialog
 import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
@@ -37,6 +38,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCheckboxModule,
     MatMenuModule,
     MatPaginatorModule,
+    MatTooltipModule,
   ],
   exports: [
     CommonModule,
@@ -55,6 +57,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCheckboxModule,
     MatMenuModule,
     MatPaginatorModule,
+    MatTooltipModule,
   ],
 })
 export class SharedModule {}

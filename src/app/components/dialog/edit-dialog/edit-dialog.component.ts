@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { User } from '../../interfaces/user.interface';
 import { UserService } from 'src/app/services/user.service';
-
+import { validateUser } from 'src/assets/controllers/validateInput';
 @Component({
   selector: 'app-edit-dialog',
   templateUrl: './edit-dialog.component.html',
@@ -11,7 +11,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class EditDialogComponent {
   selectedGender: 'male' | 'female' = 'male';
-
+  allInputs: boolean;
+  validateInputs = {
+    name: false,
+    lastName: false,
+    age: false,
+  };
   form: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -37,7 +42,25 @@ export class EditDialogComponent {
         gender: [''],
       });
     }
+    this.onValidate();
   }
+  onValidate() {
+    this.validateInputs = validateUser(
+      this.form.value.name,
+      this.form.value.lastName,
+      this.form.value.age
+    );
+    if (
+      this.validateInputs.name &&
+      this.validateInputs.lastName &&
+      this.validateInputs.age
+    ) {
+      this.allInputs = true;
+    } else {
+      this.allInputs = false;
+    }
+  }
+
   toggleGender(gender: 'male' | 'female') {
     if (gender !== this.selectedGender) {
       this.selectedGender = gender;

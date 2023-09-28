@@ -9,5 +9,5 @@ tasks:
 agregar editar,buscar,eliminar check.
 paginado check
 hacer agregar persona check
-responsive navbar
+responsive navbar check
 poner algo en report y dashboard

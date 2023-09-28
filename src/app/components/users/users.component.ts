@@ -5,6 +5,7 @@ import { EditDialogComponent } from '../dialog/edit-dialog/edit-dialog.component
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { ConfirmDialogComponent } from '../dialog/confirm-dialog/confirm-dialog.component';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -27,8 +28,9 @@ export class UsersComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
   onDeleteUser(id: number): void {
-    console.log(id);
-    this.userService.deleteUser(id);
+    // console.log(id);
+    // this.userService.deleteUser(id);
+    this.dialog.open(ConfirmDialogComponent, { data: id });
   }
   onEdit(element?: any) {
     if (element) {

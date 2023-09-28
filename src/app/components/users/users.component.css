@@ -4,12 +4,12 @@
   align-items: center;
   padding-right: 300px;
 }
-button {
-  border: 1px solid black;
-}
 
-#edit {
-  color: goldenrod;
+#edit,
+#delete {
+  width: 35px;
+  height: 35px;
+  margin: 5px;
 }
 .mat-icon:hover {
   cursor: pointer;
