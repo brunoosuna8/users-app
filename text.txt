@@ -11,3 +11,5 @@ paginado check
 hacer agregar persona check
 responsive navbar check
 poner algo en report y dashboard
+
+
