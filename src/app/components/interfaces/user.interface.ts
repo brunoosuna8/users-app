@@ -1,7 +1,12 @@
 export interface User {
-  id: number;
-  name: string;
-  lastName: string;
-  age: number;
-  gender: 'male' | 'female';
+  Id: number;
+  Name: string;
+  LastName: string;
+  Age: number;
+  Gender: 'male' | 'female';
+  Education: string;
+  JoiningYear: number;
+  City: string;
+  PaymentTier: 3;
+  EverBrenched: 'Yes' | 'No';
 }

@@ -16,10 +16,23 @@ export class UsersComponent implements OnInit {
 
   array: User[] = [];
   constructor(private userService: UserService, private dialog: MatDialog) {}
-  displayedColumns: string[] = ['name', 'lastName', 'age', 'gender', 'actions'];
+  displayedColumns: string[] = [
+    'name',
+    'lastName',
+    'age',
+    'gender',
+    'education',
+    'joining-year',
+    'city',
+    'payment-tier',
+    'ever-brenched',
+    'actions',
+  ];
   dataSource = new MatTableDataSource<User>(this.array);
   ngOnInit(): void {
     this.userService.users.subscribe((data) => {
+      console.log(data);
+
       this.dataSource.data = data;
       console.log(this.dataSource);
     });
@@ -35,11 +48,16 @@ export class UsersComponent implements OnInit {
   onEdit(element?: any) {
     if (element) {
       let userEdit: User = {
-        id: element.id,
-        name: element.name,
-        lastName: element.lastName,
-        age: element.age,
-        gender: element.gender,
+        Id: element.id,
+        Name: element.name,
+        LastName: element.lastName,
+        Age: element.age,
+        Gender: element.gender,
+        Education: element.education,
+        JoiningYear: element.joiningYear,
+        City: element.city,
+        PaymentTier: element.paymentTier,
+        EverBrenched: element.everBrenched,
       };
       this.dialog.open(EditDialogComponent, {
         data: userEdit,

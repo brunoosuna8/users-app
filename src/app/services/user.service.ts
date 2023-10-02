@@ -12,23 +12,24 @@ export class UserService {
   constructor(private http: HttpClient) {
     this.getUsersFromJSON().subscribe((users) => {
       this.arrayUsers = users;
+      console.log(this.arrayUsers);
       this.arrayObs.next(this.arrayUsers);
     });
   }
 
   getUsersFromJSON(): Observable<User[]> {
-    return this.http.get<User[]>('./assets/data/users.json');
+    return this.http.get<User[]>('./assets/data/allUsers.json');
   }
   get users() {
     return this.arrayObs.asObservable();
   }
   deleteUser(id: number): void {
-    let filteredArray = this.arrayUsers.filter((e) => e.id !== id);
+    let filteredArray = this.arrayUsers.filter((e) => e.Id !== id);
     this.arrayUsers = filteredArray;
     this.arrayObs.next(this.arrayUsers);
   }
   updateUser(userUpdated: User) {
-    let index = this.arrayUsers.findIndex((e) => e.id === userUpdated.id);
+    let index = this.arrayUsers.findIndex((e) => e.Id === userUpdated.Id);
     this.arrayUsers[index] = userUpdated;
     this.arrayObs.next([...this.arrayUsers]);
   }

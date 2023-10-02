@@ -25,12 +25,17 @@ export class EditDialogComponent {
     private userService: UserService
   ) {
     if (this.data) {
-      this.selectedGender = this.data.gender;
+      this.selectedGender = this.data.Gender;
       this.form = this.fb.group({
-        name: [data.name, Validators.required], //esta prop inicializa vacia y va a ser requerida
-        lastName: [data.lastName, Validators.required],
-        age: [data.age, Validators.required],
-        gender: [data.gender],
+        name: [data.Name, Validators.required], //esta prop inicializa vacia y va a ser requerida
+        lastName: [data.LastName, Validators.required],
+        age: [data.Age, Validators.required],
+        gender: [data.Gender],
+        Education: [data.Education],
+        JoiningYear: [data.JoiningYear],
+        City: [data.City],
+        PaymentTier: [data.PaymentTier],
+        EverBrenched: [data.EverBrenched],
       });
     } else {
       console.log(this.data);
@@ -40,6 +45,11 @@ export class EditDialogComponent {
         lastName: ['', Validators.required],
         age: ['', Validators.required],
         gender: [''],
+        education: ['', Validators.required],
+        joiningYear: ['', Validators.required],
+        city: ['', Validators.required],
+        paymentTier: ['', Validators.required],
+        everBrenched: ['', Validators.required],
       });
     }
     this.onValidate();
@@ -69,13 +79,18 @@ export class EditDialogComponent {
   onSubmit() {
     this.form.value.gender = this.selectedGender;
     console.log(this.form.value);
-    let id = this.data ? this.data.id : this.form.value.id;
+    let id = this.data ? this.data.Id : this.form.value.id;
     let userUpdated: User = {
-      id: id,
-      name: this.form.value.name,
-      lastName: this.form.value.lastName,
-      age: this.form.value.age,
-      gender: this.selectedGender,
+      Id: id,
+      Name: this.form.value.name,
+      LastName: this.form.value.lastName,
+      Age: this.form.value.age,
+      Gender: this.selectedGender,
+      Education: this.form.value.education,
+      JoiningYear: this.form.value.joiningYear,
+      City: this.form.value.city,
+      PaymentTier: this.form.value.paymentTier,
+      EverBrenched: this.form.value.everBrenched,
     };
     console.log(userUpdated);
     if (this.data) {

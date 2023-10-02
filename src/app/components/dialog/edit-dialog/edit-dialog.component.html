@@ -60,7 +60,17 @@
         }}</mat-icon>
       </div>
     </div>
-
+    <div class="input-container">
+      <mat-form-field>
+        <mat-label>Education</mat-label>
+        <input matInput formControlName="education" type="text" />
+      </mat-form-field>
+      <!-- <div class="icon-container">
+        <mat-icon [style.color]="validateInputs.age ? 'green' : 'red'">{{
+          validateInputs.age ? "check_circle" : "error_outline"
+        }}</mat-icon>
+      </div> -->
+    </div>
     <mat-label>Gender</mat-label>
 
     <mat-checkbox
